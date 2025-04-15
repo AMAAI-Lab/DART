@@ -1,7 +1,7 @@
 import argparse
 
 from utils.tools import get_configs_of
-from preprocessor.preprocessor import Preprocessor
+from preprocessor.preprocessorl2 import Preprocessor
 
 
 if __name__ == "__main__":
@@ -9,8 +9,9 @@ if __name__ == "__main__":
     parser.add_argument(
         "--dataset",
         type=str,
-        required=True,
+        # required=True,
         help="name of dataset",
+        default='L2Arctic'
     )
     args = parser.parse_args()
 
