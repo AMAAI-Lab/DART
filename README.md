@@ -1,51 +1,62 @@
 # DART: Disentanglement of Accent and Speaker Representation in Multispeaker TTS
+
 This repository contains the official demo code for **DART**, accepted at the *Audio Imagination Workshop, NeurIPS 2024*.
-- 🎧 **Audio samples**: https://amaai-lab.github.io/DART/  
-- 📄 **Paper codebase**: This repository  
-The implementation builds on the excellent  
-[Comprehensive-Transformer-TTS](https://github.com/keonlee9420/Comprehensive-Transformer-TTS).
+
+- Audio samples: https://amaai-lab.github.io/DART/
+- Paper codebase: This repository
+
+Built on top of:
+https://github.com/keonlee9420/Comprehensive-Transformer-TTS
+
 ---
-## 🚀 Overview
-DART focuses on disentangling **speaker identity** and **accent representation** in multispeaker text-to-speech systems using a structured latent approach.
+
+## Overview
+
+DART disentangles speaker identity and accent representation in multispeaker TTS using a structured latent framework.
+
 ---
-## 📦 Installation
-*(Add setup instructions here if needed.)*
+
+## Installation
+
+(Add setup instructions if needed)
+
 ---
-## 🏋️ Training
-To train DART on the L2-ARCTIC dataset:
-```bash
+
+## Training
+
+Train on L2-ARCTIC:
+
 CUDA_VISIBLE_DEVICES=0 python train.py --dataset L2ARCTIC
 
-⸻
+---
 
-🔊 Inference
+## Inference
 
 Two synthesis scripts are provided:
 
-* synthesize_converted.py
-    Generates speech from predefined scripts across combinations of speakers, accents, and sentences.
-* synthesize_stats_valset.py
-    Generates speech from a metadata .txt file.
+- synthesize_converted.py  
+  Generates speech across combinations of speakers, accents, and sentences.
 
-⚠️ Important
+- synthesize_stats_valset.py  
+  Generates speech from a metadata .txt file.
 
-Before running any synthesis script, you must first extract latent embeddings:
+### Required preprocessing
+
+Before inference, extract embeddings:
 
 python extract_stats.py
 
-This step computes and stores the MLVAE-based embeddings for speakers and accents, which are required for inference.
+This saves MLVAE-based embeddings for speakers and accents.
 
-Example
+---
 
-CUDA_VISIBLE_DEVICES=0 python synthesize_converted.py \
-    --dataset L2ARCTIC \
-    --restore_step 704000
+### Example
 
-⸻
+CUDA_VISIBLE_DEVICES=0 python synthesize_converted.py   --dataset L2ARCTIC   --restore_step 704000
 
-📖 Citation
+---
 
-If you find this work useful, please cite:
+## Citation
 
 @inproceedings{melechovsky2024dart,
   title={DART: Disentanglement of Accent and Speaker Representation in Multispeaker Text-to-Speech},
@@ -54,16 +65,15 @@ If you find this work useful, please cite:
   year={2024}
 }
 
-⸻
+---
 
-🙏 Acknowledgements
+## Acknowledgements
 
-This work builds upon:
+Based on:
+- Comprehensive Transformer TTS by Keon Lee et al.
 
-* Comprehensive Transformer TTS by Keon Lee et al.
+---
 
-⸻
+## Contact
 
-📬 Contact
-
-For questions or collaborations, feel free to open an issue.
+Open an issue for questions or collaboration.
