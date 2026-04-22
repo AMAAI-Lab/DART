@@ -63,11 +63,12 @@ If you find this model useful, please cite our paper:
   year={2024}
 }
 ```
----
+
 
 ## Acknowledgements
 
 Based on Comprehensive Transformer TTS by Keon Lee et al.
+
 ## Contact
 
 Open an issue for questions or collaboration.
