@@ -1,22 +1,69 @@
-This is a demo repo for DART, accepted in the Audio Imagination workshop of NeurIPS 2024
-
-Code used in the paper is here
-
-Audio samples are on the associated webpage: https://amaai-lab.github.io/DART/
-
-This code is based on https://github.com/keonlee9420/Comprehensive-Transformer-TTS
-
-### Training
-
-To train on L2-ARCTIC, you can call:
+# DART: Disentanglement of Accent and Speaker Representation in Multispeaker TTS
+This repository contains the official demo code for **DART**, accepted at the *Audio Imagination Workshop, NeurIPS 2024*.
+- 🎧 **Audio samples**: https://amaai-lab.github.io/DART/  
+- 📄 **Paper codebase**: This repository  
+The implementation builds on the excellent  
+[Comprehensive-Transformer-TTS](https://github.com/keonlee9420/Comprehensive-Transformer-TTS).
+---
+## 🚀 Overview
+DART focuses on disentangling **speaker identity** and **accent representation** in multispeaker text-to-speech systems using a structured latent approach.
+---
+## 📦 Installation
+*(Add setup instructions here if needed.)*
+---
+## 🏋️ Training
+To train DART on the L2-ARCTIC dataset:
 ```bash
 CUDA_VISIBLE_DEVICES=0 python train.py --dataset L2ARCTIC
-```
-### Inference
 
-For inference from a checkpoint, you can utilize the two enclosed functions `synthesize_converted.py` or `synthesize_stats_valset.py`. The first one would synthesize sentences in the script (a loop for speakers, accents, and sentences), the latter would synthesize from a metadata .txt file. Note that before you run any synthesis script, you should first run  `extract_stats.py` script on your current checkpoint to extract and save the MLVAE embeddings for speakers and accents first.
+⸻
 
-An example use of the synthesis scripts is:
-```bash
-CUDA_VISIBLE_DEVICES=0 python synthesize_converted.py --dataset L2ARCTIC --restore_step 704000
-```
+🔊 Inference
+
+Two synthesis scripts are provided:
+
+* synthesize_converted.py
+    Generates speech from predefined scripts across combinations of speakers, accents, and sentences.
+* synthesize_stats_valset.py
+    Generates speech from a metadata .txt file.
+
+⚠️ Important
+
+Before running any synthesis script, you must first extract latent embeddings:
+
+python extract_stats.py
+
+This step computes and stores the MLVAE-based embeddings for speakers and accents, which are required for inference.
+
+Example
+
+CUDA_VISIBLE_DEVICES=0 python synthesize_converted.py \
+    --dataset L2ARCTIC \
+    --restore_step 704000
+
+⸻
+
+📖 Citation
+
+If you find this work useful, please cite:
+
+@inproceedings{melechovsky2024dart,
+  title={DART: Disentanglement of Accent and Speaker Representation in Multispeaker Text-to-Speech},
+  author={Melechovsky, J. and Mehrish, A. and Sisman, B. and Herremans, D.},
+  booktitle={Audio Imagination Workshop, NeurIPS},
+  year={2024}
+}
+
+⸻
+
+🙏 Acknowledgements
+
+This work builds upon:
+
+* Comprehensive Transformer TTS by Keon Lee et al.
+
+⸻
+
+📬 Contact
+
+For questions or collaborations, feel free to open an issue.
