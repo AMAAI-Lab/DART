@@ -13,12 +13,6 @@ DART disentangles speaker identity and accent representation in multispeaker TTS
 
 
 
-## Installation
-
-(Add setup instructions if needed)
-
-
-
 ## Training
 
 Train on L2-ARCTIC:
