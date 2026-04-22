@@ -3,7 +3,7 @@
 This repository contains the official demo code for **DART**, accepted at the *Audio Imagination Workshop, NeurIPS 2024*.
 
 [Audio samples](https://amaai-lab.github.io/DART/)
-
+[Paper](https://arxiv.org/abs/2410.13342)
 
 
 ## Overview
